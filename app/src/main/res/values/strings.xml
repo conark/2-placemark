@@ -1,35 +1,35 @@
 <resources>
-    <string name="app_name">DonationX</string>
-    <string name="donateTitle">Welcome Homer</string>
-    <string name="donateSubtitle">Please Give Generously</string>
-    <string name="donateButton">Donate</string>
+    <string name="app_name">Find Doctor</string>
+    <string name="providerTitle">Welcome Homer</string>
+    <string name="providerSubtitle">Please Give Generously</string>
+    <string name="providerButton">Create</string>
     <string name="paypal">PayPal</string>
     <string name="direct">Direct</string>
     <string name="amount">Amount</string>
     <string name="total">Total so Far</string>
     <string name="totalSoFar">$ %1$d</string>
-    <string name="reportTitle">Donations Report</string>
+    <string name="reportTitle">Providers Report</string>
     <string name="defaultAmount">00</string>
     <string name="defaultMethod">N/A</string>
     <string name="enter_amount">Enter Amount</string>
-    <string name="action_donate">Donate</string>
-    <string name="action_report">Report</string>
+    <string name="action_provider">Create Provider</string>
+    <string name="action_report">Providers List</string>
 
     <string name="action_share">Share</string>
     <string name="action_send">Send</string>
     <string name="group_communicate">Communicate</string>
 
-    <string name="nav_header_title">DonationX (Lab)</string>
+    <string name="nav_header_title">Find Doctor</string>
     <string name="nav_header_subtitle">voteforhomer@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="action_about">About Us</string>
     <string name="aboutus_title">Homer for President !!</string>
-    <string name="aboutus_message">Hi, I\'m Homer\n\nPlease vote for me.\n\n Please Please Please Please!!</string>
+    <string name="aboutus_message">Welcome!\n\n Find your doctor now! \n\nGet treatment!!</string>
 
-    <string name="donationsNotFound">No Donations Yet…\nGo Make a Donation!</string>
-    <string name="donationError">Error : Couldn\'t Make a Donation…</string>
-    <string name="donationDetails">Donation Details</string>
+    <string name="providersNotFound">No Providers Yet…\nGo Make a Provider!</string>
+    <string name="providerError">Error : Couldn\'t Make a provider…</string>
+    <string name="providerDetails">Provider Details</string>
 
     <string name="amt">Amount :</string>
     <string name="payment">Payment :</string>
@@ -38,7 +38,7 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
 
-    <string name="messageLoading">Please Wait while the Donations are Loading...</string>
+    <string name="messageLoading">Please Wait...Loading...</string>
 
     <!-- START Firebase Resources-->
 

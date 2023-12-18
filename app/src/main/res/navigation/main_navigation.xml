@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/donateFragment"
-        android:name="ie.wit.donationx.ui.donate.DonateFragment"
-        android:label="@string/action_donate"
-        tools:layout="@layout/fragment_donate" >
+        android:name="ie.wit.finddoctor.ui.provider.ProviderFragment"
+        android:label="@string/action_provider"
+        tools:layout="@layout/fragment_provider" >
         <action
             android:id="@+id/action_donateFragment_to_reportFragment"
             app:destination="@id/reportFragment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
-        android:name="ie.wit.donationx.ui.report.ReportFragment"
+        android:name="ie.wit.finddoctor.ui.report.ReportFragment"
         android:label="@string/action_report"
         tools:layout="@layout/fragment_report" >
         <action
@@ -29,33 +29,33 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
         <action
-            android:id="@+id/action_reportFragment_to_donationDetailFragment"
-            app:destination="@id/donationDetailFragment" />
+            android:id="@+id/action_reportFragment_to_providerDetailFragment"
+            app:destination="@id/providerDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="ie.wit.donationx.ui.about.AboutFragment"
+        android:name="ie.wit.finddoctor.ui.about.AboutFragment"
         android:label="@string/action_about"
         tools:layout="@layout/fragment_about" />
     <fragment
-        android:id="@+id/donationDetailFragment"
-        android:name="ie.wit.donationx.ui.detail.DonationDetailFragment"
-        android:label="Donation Detail"
-        tools:layout="@layout/fragment_donation_detail" >
+        android:id="@+id/providerDetailFragment"
+        android:name="ie.wit.finddoctor.ui.detail.ProviderDetailFragment"
+        android:label="Provider Detail"
+        tools:layout="@layout/fragment_provider_detail" >
         <action
-            android:id="@+id/action_donationDetailFragment_to_reportFragment"
+            android:id="@+id/action_providerDetailFragment_to_reportFragment"
             app:destination="@id/reportFragment" />
         <argument
-            android:name="donationid"
+            android:name="providerid"
             app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="ie.wit.donationx.ui.map.MapsFragment"
-        android:label="Donation Map"
+        android:name="ie.wit.finddoctor.ui.map.MapsFragment"
+        android:label="Provider Map"
         tools:layout="@layout/fragment_maps" >
         <action
-            android:id="@+id/action_mapsFragment_to_donationDetailFragment"
-            app:destination="@id/donationDetailFragment" />
+            android:id="@+id/action_mapsFragment_to_providerDetailFragment"
+            app:destination="@id/providerDetailFragment" />
     </fragment>
 </navigation>

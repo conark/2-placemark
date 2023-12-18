@@ -4,9 +4,9 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/donateFragment"
-            android:icon="@drawable/ic_menu_donate"
-            android:title="@string/action_donate" />
+            android:id="@+id/providerFragment"
+            android:icon="@drawable/ic_hospital"
+            android:title="@string/action_provider" />
         <item
             android:id="@+id/reportFragment"
             android:icon="@drawable/ic_menu_report"
