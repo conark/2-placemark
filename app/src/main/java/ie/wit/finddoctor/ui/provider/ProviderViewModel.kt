@@ -16,7 +16,7 @@ class ProviderViewModel : ViewModel() {
         get() = status
 
     fun addProvider(firebaseUser: MutableLiveData<FirebaseUser>,
-                    placemark: ProviderModel) {
+                    provider: ProviderModel) {
         status.value = try {
             //ProviderManager.create(provider)
             provider.profilepic = FirebaseImageManager.imageUri.value.toString()

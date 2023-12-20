@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:62581923460:android:95cc597d048d81e5696cd1",
+        "mobilesdk_app_id": "1:62581923460:android:b620583165acfef6696cd1",
         "android_client_info": {
           "package_name": "ie.wit.finddoctor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "62581923460-cbk62b4i8ph7titq85cr4bn4te0qgbuf.apps.googleusercontent.com",
+          "client_id": "62581923460-siea1af3ceg52b1gfa8u4htrtu7a9ces.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "ie.wit.donationx",
+            "package_name": "ie.wit.finddoctor",
             "certificate_hash": "6408d30aa48a4768bcdd67c608af96ab21c427e1"
           }
         },
