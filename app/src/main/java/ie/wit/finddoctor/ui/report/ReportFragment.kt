@@ -46,7 +46,7 @@ class ReportFragment : Fragment(), ProviderClickListener {
 
         fragBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         fragBinding.fab.setOnClickListener {
-            val action = ReportFragmentDirections.actionReportFragmentToDonateFragment()
+            val action = ReportFragmentDirections.actionReportFragmentToProviderFragment()
             findNavController().navigate(action)
         }
         showLoader(loader,"Downloading Providers")

@@ -6,12 +6,12 @@
     app:startDestination="@id/reportFragment">
 
     <fragment
-        android:id="@+id/donateFragment"
+        android:id="@+id/providerFragment"
         android:name="ie.wit.finddoctor.ui.provider.ProviderFragment"
         android:label="@string/action_provider"
         tools:layout="@layout/fragment_provider" >
         <action
-            android:id="@+id/action_donateFragment_to_reportFragment"
+            android:id="@+id/action_providerFragment_to_reportFragment"
             app:destination="@id/reportFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
@@ -22,8 +22,8 @@
         android:label="@string/action_report"
         tools:layout="@layout/fragment_report" >
         <action
-            android:id="@+id/action_reportFragment_to_donateFragment"
-            app:destination="@id/donateFragment"
+            android:id="@+id/action_reportFragment_to_providerFragment"
+            app:destination="@id/providerFragment"
             app:popUpTo="@id/main_navigation"
             app:popUpToInclusive="true"
             app:enterAnim="@anim/nav_default_enter_anim"
