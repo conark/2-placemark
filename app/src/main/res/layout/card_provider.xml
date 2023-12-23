@@ -45,17 +45,17 @@
                 tools:text="€1000" />
 
             <TextView
-                android:id="@+id/paymentmethod"
+                android:id="@+id/providertype"
                 android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/paymentamount"
-                android:text="@{provider.paymentmethod}"
+                android:text="@{provider.providertype}"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                tools:text="@string/paypal" />
+                tools:text="@string/gp" />
 
             <ImageView
                 android:id="@+id/imagefavourite"
@@ -66,7 +66,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="5dp"
-                android:layout_toEndOf="@id/paymentmethod"
+                android:layout_toEndOf="@id/providertype"
                 app:srcCompat="@android:drawable/star_big_off" />
 
             <TextView

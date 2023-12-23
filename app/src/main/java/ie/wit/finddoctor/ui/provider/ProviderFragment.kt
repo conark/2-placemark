@@ -76,12 +76,12 @@ class ProviderFragment : Fragment() {
             if(total >= layout.progressBar.max)
                 Toast.makeText(context,"Total Amount Exceeded!", Toast.LENGTH_LONG).show()
             else {
-                val paymentmethod = if(layout.paymentMethod.checkedRadioButtonId == R.id.Direct) "Direct" else "Paypal"
+                val providertype = if(layout.providerType.checkedRadioButtonId == R.id.GP) "GP" else "Consultant"
                 total += amount
                 layout.totalSoFar.text = String.format(getString(R.string.totalSoFar),total)
                 layout.progressBar.progress = total
                 providerViewModel.addProvider(loggedInViewModel.liveFirebaseUser,
-                    ProviderModel(paymentmethod = paymentmethod, amount = amount,
+                    ProviderModel(providertype = providertype, amount = amount,
                         email = loggedInViewModel.liveFirebaseUser.value?.email!!,
                         latitude = mapsViewModel.currentLocation.value!!.latitude,
                         longitude = mapsViewModel.currentLocation.value!!.longitude))

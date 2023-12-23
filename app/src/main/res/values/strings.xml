@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Find Doctor</string>
-    <string name="providerTitle">Welcome Homer</string>
-    <string name="providerSubtitle">Please Give Generously</string>
+    <string name="providerTitle">Add Medical Provider</string>
+    <string name="providerSubtitle">Please fill out below</string>
     <string name="providerButton">Create</string>
-    <string name="paypal">PayPal</string>
-    <string name="direct">Direct</string>
+    <string name="gp">GP</string>
+    <string name="consultant">Consultant</string>
+    <string name="scancenter">Scan Center</string>
+    <string name="dentist">Dentist</string>
     <string name="amount">Amount</string>
     <string name="total">Total so Far</string>
     <string name="totalSoFar">$ %1$d</string>
@@ -32,7 +34,7 @@
     <string name="providerDetails">Provider Details</string>
 
     <string name="amt">Amount :</string>
-    <string name="payment">Payment :</string>
+    <string name="provider">Provider Type :</string>
     <string name="message">Message :</string>
     <string name="upvotes">UpVotes :</string>
     <string name="update">Update</string>
