@@ -47,6 +47,52 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.114" />
 
+
+    <EditText
+        android:id="@+id/providerName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="564dp"
+        android:autofillHints=""
+        android:hint="@string/hint_providerName"
+        android:inputType="text"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:textColor="@color/color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerSubtitle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/providerDrName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="508dp"
+        android:hint="@string/hint_providerDrName"
+        android:inputType="text"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:textColor="@color/color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerName"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/providerButton"
         android:layout_width="wrap_content"
@@ -79,30 +125,38 @@
         android:layout_toStartOf="@+id/amountPicker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/providerTitle"
-        app:layout_constraintVertical_bias="0.276">
+        app:layout_constraintVertical_bias="0.543">
 
         <RadioButton
             android:id="@+id/GP"
-            android:layout_width="97dp"
+            android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/gp" />
 
         <RadioButton
             android:id="@+id/Consultant"
-            android:layout_width="97dp"
+            android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/consultant" />
+
+        <RadioButton
+            android:id="@+id/dentist"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/dentist" />
+
     </RadioGroup>
 
     <NumberPicker
         android:id="@+id/amountPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="136dp"
         android:layout_alignEnd="@+id/providerSubtitle"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -110,10 +164,10 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.566" />
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -5,8 +5,9 @@
     <string name="providerButton">Create</string>
     <string name="gp">GP</string>
     <string name="consultant">Consultant</string>
-    <string name="scancenter">Scan Center</string>
     <string name="dentist">Dentist</string>
+    <string name="hint_providerName">Name of Medical Provider</string>
+    <string name="hint_providerDrName">Name of Doctor</string>
     <string name="amount">Amount</string>
     <string name="total">Total so Far</string>
     <string name="totalSoFar">$ %1$d</string>

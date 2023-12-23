@@ -45,10 +45,10 @@ class ReportViewModel : ViewModel() {
         }
     }
 
-    fun delete(userid: String, id: String) {
+    fun delete(userid: String, providerid: String) {
         try {
             //ProviderManager.delete(userid,id)
-            FirebaseDBManager.delete(userid,id)
+            FirebaseDBManager.delete(userid,providerid)
             Timber.i("Report Delete Success")
         }
         catch (e: Exception) {

@@ -87,7 +87,7 @@ object FirebaseDBManager : ProviderStore {
     }
 
     override fun delete(userid: String, providerid: String) {
-
+        Timber.i("delete メソッドが呼び出されました。UserID: $userid, ProviderID: $providerid")
         val childDelete : MutableMap<String, Any?> = HashMap()
         childDelete["/providers/$providerid"] = null
         childDelete["/user-providers/$userid/$providerid"] = null

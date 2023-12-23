@@ -73,6 +73,11 @@ class ProviderFragment : Fragment() {
         layout.providerButton.setOnClickListener {
             val amount = if (layout.paymentAmount.text.isNotEmpty())
                 layout.paymentAmount.text.toString().toInt() else layout.amountPicker.value
+
+
+            val providerName = layout.providerName.text.toString()
+            val providerDrName = layout.providerDrName.text.toString()
+
             if(total >= layout.progressBar.max)
                 Toast.makeText(context,"Total Amount Exceeded!", Toast.LENGTH_LONG).show()
             else {
@@ -81,7 +86,7 @@ class ProviderFragment : Fragment() {
                 layout.totalSoFar.text = String.format(getString(R.string.totalSoFar),total)
                 layout.progressBar.progress = total
                 providerViewModel.addProvider(loggedInViewModel.liveFirebaseUser,
-                    ProviderModel(providertype = providertype, amount = amount,
+                    ProviderModel(providerName = providerName, providerDrName = providerDrName, providertype =  providertype, amount = amount,
                         email = loggedInViewModel.liveFirebaseUser.value?.email!!,
                         latitude = mapsViewModel.currentLocation.value!!.latitude,
                         longitude = mapsViewModel.currentLocation.value!!.longitude))

@@ -10,8 +10,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ProviderModel(
       var uid: String? = "",
-      var title: String = "",
-      var description: String = "",
+      var providerName: String = "",
+      var providerDrName: String = "",
 //      var paymentmethod: String = "N/A",
       var amount: Int = 0,
       var message: String = "Homer for President!",
@@ -32,8 +32,8 @@ data class ProviderModel(
       fun toMap(): Map<String, Any?> {
             return mapOf(
                   "uid" to uid,
-                  "title" to title,
-                  "description" to description,
+                  "providerName" to providerName,
+                  "providerDrName" to providerDrName,
 //                  "paymentmethod" to paymentmethod,
                   "amount" to amount,
                   "message" to message,

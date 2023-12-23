@@ -40,10 +40,19 @@ class ProviderDetailFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+//        fragBinding.deleteProviderButton.setOnClickListener {
+//            reportViewModel.delete(loggedInViewModel.liveFirebaseUser.value?.email!!,
+//                detailViewModel.observableProvider.value?.uid!!)
+//            findNavController().navigateUp()
+//        }
         fragBinding.deleteProviderButton.setOnClickListener {
-            reportViewModel.delete(loggedInViewModel.liveFirebaseUser.value?.email!!,
-                detailViewModel.observableProvider.value?.uid!!)
-            findNavController().navigateUp()
+            try {
+                reportViewModel.delete(loggedInViewModel.liveFirebaseUser.value?.email!!,
+                    detailViewModel.observableProvider.value?.uid!!)
+                findNavController().navigateUp()
+            } catch (e: Exception) {
+                Timber.e("プロバイダの削除中にエラーが発生しました: ${e.message}")
+            }
         }
 
         return root
