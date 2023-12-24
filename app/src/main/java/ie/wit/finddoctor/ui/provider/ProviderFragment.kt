@@ -19,6 +19,7 @@ import ie.wit.finddoctor.ui.auth.LoggedInViewModel
 import ie.wit.finddoctor.ui.map.MapsViewModel
 import ie.wit.finddoctor.ui.report.ReportViewModel
 
+
 class ProviderFragment : Fragment() {
 
     var total = 0
@@ -44,14 +45,14 @@ class ProviderFragment : Fragment() {
                 status -> status?.let { render(status) }
         })
 
-        fragBinding.progressBar.max = 10000
-        fragBinding.amountPicker.minValue = 1
-        fragBinding.amountPicker.maxValue = 1000
-
-        fragBinding.amountPicker.setOnValueChangedListener { _, _, newVal ->
-            //Display the newly selected number to paymentAmount
-            fragBinding.paymentAmount.setText("$newVal")
-        }
+//        fragBinding.progressBar.max = 10000
+//        fragBinding.drAmountPicker.minValue = 1
+//        fragBinding.drAmountPicker.maxValue = 1000
+//
+//        fragBinding.drAmountPicker.setOnValueChangedListener { _, _, newVal ->
+//            //Display the newly selected number to DrAmount
+//            fragBinding.drAmount.setText("$newVal")
+//        }
         setButtonListener(fragBinding)
 
         return root;
@@ -71,56 +72,67 @@ class ProviderFragment : Fragment() {
 
     private fun setButtonListener(layout: FragmentProviderBinding) {
         layout.providerButton.setOnClickListener {
-            val amount = if (layout.paymentAmount.text.isNotEmpty())
-                layout.paymentAmount.text.toString().toInt() else layout.amountPicker.value
+//            val  drAmount = if (layout.drAmount.text.isNotEmpty())
+//                layout.drAmount.text.toString().toInt() else layout.drAmountPicker.value
 
 
             val providerName = layout.providerName.text.toString()
             val providerDrName = layout.providerDrName.text.toString()
+            val providerAddress = layout.providerAddress.text.toString()
+            val providerCity = layout.providerCity.text.toString()
 
-            if(total >= layout.progressBar.max)
-                Toast.makeText(context,"Total Amount Exceeded!", Toast.LENGTH_LONG).show()
-            else {
-                val providertype = if(layout.providerType.checkedRadioButtonId == R.id.GP) "GP" else "Consultant"
-                total += amount
-                layout.totalSoFar.text = String.format(getString(R.string.totalSoFar),total)
-                layout.progressBar.progress = total
+//            if(total >= layout.progressBar.max)
+//                Toast.makeText(context,"Total Amount Exceeded!", Toast.LENGTH_LONG).show()
+//            else {
+//                val providertype = if(layout.providerType.checkedRadioButtonId == R.id.GP) "GP" else "Consultant"
+            val providertype = when {
+                layout.providerType.checkedRadioButtonId == R.id.GP -> "GP"
+                layout.providerType.checkedRadioButtonId == R.id.consultant -> "Consultant"
+                layout.providerType.checkedRadioButtonId == R.id.dentist -> "Dentist"
+                else -> "Unknown"
+            }
+//                total += amount
+//                layout.totalSoFar.text = String.format(getString(R.string.totalSoFar),total)
+//                layout.progressBar.progress = total
                 providerViewModel.addProvider(loggedInViewModel.liveFirebaseUser,
-                    ProviderModel(providerName = providerName, providerDrName = providerDrName, providertype =  providertype, amount = amount,
+                    ProviderModel(providerName = providerName, providerDrName = providerDrName, providertype =  providertype,
+//                        drAmount = drAmount,
+                        providerAddress = providerAddress ,
+                        providerCity = providerCity ,
                         email = loggedInViewModel.liveFirebaseUser.value?.email!!,
                         latitude = mapsViewModel.currentLocation.value!!.latitude,
                         longitude = mapsViewModel.currentLocation.value!!.longitude))
                  }
+  //      }
+    }
+private fun setupMenu() {
+    (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
+        override fun onPrepareMenu(menu: Menu) {
+            // Handle for example visibility of menu items
         }
-    }
 
-   private fun setupMenu() {
-        (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
-            override fun onPrepareMenu(menu: Menu) {
-                // Handle for example visibility of menu items
-            }
+        override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+            menuInflater.inflate(R.menu.menu_provider, menu)
+        }
 
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.menu_provider, menu)
-            }
+        override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+            // Validate and handle the selected menu item
+            return NavigationUI.onNavDestinationSelected(menuItem,
+                requireView().findNavController())
+        }
+    }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+}
 
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                // Validate and handle the selected menu item
-                return NavigationUI.onNavDestinationSelected(menuItem,
-                    requireView().findNavController())
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _fragBinding = null
     }
 
-    override fun onResume() {
-        super.onResume()
-        total = reportViewModel.observableProvidersList.value!!.sumOf { it.amount }
-        fragBinding.progressBar.progress = total
-        fragBinding.totalSoFar.text = String.format(getString(R.string.totalSoFar),total)
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        total = reportViewModel.observableProvidersList.value!!.sumOf { it.amount }
+//        fragBinding.progressBar.progress = total
+//        fragBinding.totalSoFar.text = String.format(getString(R.string.totalSoFar),total)
+//    }
 }

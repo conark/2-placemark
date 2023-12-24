@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -10,7 +10,6 @@
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,11 +21,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/message"
+        android:text="@string/dr"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/editMessage"
+        app:layout_constraintEnd_toStartOf="@+id/editProviderDrName"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -37,29 +36,43 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/upvotes"
+        android:text="@string/providerAddress"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/editUpvotes"
+        app:layout_constraintEnd_toStartOf="@+id/editProviderAddress"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/providerCity"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/editProviderCity"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/editMessage"
+        android:id="@+id/editProviderDrName"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="4dp"
         android:textAlignment="viewStart"
-        android:text="@={providervm.observableProvider.message}"
+        android:text="@={providervm.observableProvider.providerDrName}"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPaymenttype" />
+        app:layout_constraintTop_toBottomOf="@+id/editProviderType" />
 
     <TextView
-        android:id="@+id/editPaymenttype"
+        android:id="@+id/editProviderType"
         android:layout_width="212dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -70,32 +83,41 @@
         android:textColor="@color/color_primary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/editProviderName" />
 
     <EditText
-        android:id="@+id/editUpvotes"
+        android:id="@+id/editProviderAddress"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
-        android:inputType="number"
         android:textSize="24sp"
-        android:text="@={``+ providervm.observableProvider.upvotes}"
+        android:text="@={providervm.observableProvider.providerAddress}"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/editProviderDrName" />
+    <EditText
+        android:id="@+id/editProviderCity"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:textSize="24sp"
+        android:text="@={providervm.observableProvider.providerCity}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProviderAddress" />
 
     <EditText
-        android:id="@+id/editAmount"
+        android:id="@+id/editProviderName"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:inputType="number"
         android:textAlignment="viewStart"
         android:textSize="24sp"
-        android:text="@={``+ providervm.observableProvider.amount}"
+        android:text="@={providervm.observableProvider.providerName}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,11 +127,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/amt"
+        android:text="@string/providerName"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/editAmount"
+        app:layout_constraintEnd_toStartOf="@+id/editProviderName"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -120,14 +142,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginRight="8dp"
-        android:text="@string/provider"
+        android:text="@string/providerType"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/editPaymenttype"
+        app:layout_constraintEnd_toStartOf="@+id/editProviderType"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+    <Button
+        android:id="@+id/editMap"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+        android:text="@string/map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/editProviderButton"

@@ -93,6 +93,71 @@
         app:layout_constraintTop_toBottomOf="@+id/providerName"
         app:layout_constraintVertical_bias="0.0" />
 
+    <EditText
+        android:id="@+id/providerAddress"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="508dp"
+        android:hint="@string/hint_providerAddress"
+        android:inputType="text"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:textColor="@color/color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerDrName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/providerCity"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="508dp"
+        android:hint="@string/hint_providerCity"
+        android:inputType="text"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:textColor="@color/color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/providerAddress"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/progressBar"-->
+    <!--        style="?android:attr/progressBarStyleHorizontal"-->
+    <!--        android:layout_width="349dp"-->
+    <!--        android:layout_height="14dp"-->
+    <!--        android:layout_above="@+id/providerButton"-->
+    <!--        android:layout_alignEnd="@+id/providerSubtitle"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:indeterminate="false"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.526"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.7" />-->
+
     <Button
         android:id="@+id/providerButton"
         android:layout_width="wrap_content"
@@ -100,35 +165,34 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/providerButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948" />
+        app:layout_constraintTop_toBottomOf="@+id/editPic"
+        app:layout_constraintVertical_bias="0.944" />
 
     <RadioGroup
         android:id="@+id/providerType"
         android:layout_width="181dp"
         android:layout_height="128dp"
-        android:layout_above="@+id/progressBar"
+        android:layout_above="@+id/editMap"
         android:layout_below="@+id/providerSubtitle"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_toStartOf="@+id/amountPicker"
+        android:layout_toStartOf="@id/providerCity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/providerTitle"
-        app:layout_constraintVertical_bias="0.543">
+        app:layout_constraintTop_toBottomOf="@+id/providerCity"
+        app:layout_constraintVertical_bias="0.234">
 
         <RadioButton
             android:id="@+id/GP"
@@ -138,7 +202,7 @@
             android:text="@string/gp" />
 
         <RadioButton
-            android:id="@+id/Consultant"
+            android:id="@+id/consultant"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -149,114 +213,119 @@
             android:layout_width="126dp"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:minHeight="48dp"
             android:text="@string/dentist" />
 
     </RadioGroup>
 
-    <NumberPicker
-        android:id="@+id/amountPicker"
-        android:layout_width="40dp"
-        android:layout_height="136dp"
-        android:layout_alignEnd="@+id/providerSubtitle"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+    <Button
+        android:id="@+id/editMap"
+        android:layout_width="101dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/map"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
+        app:layout_constraintTop_toBottomOf="@+id/providerCity"
+        app:layout_constraintVertical_bias="0.01" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="349dp"
-        android:layout_height="14dp"
-        android:layout_above="@+id/providerButton"
-        android:layout_alignEnd="@+id/providerSubtitle"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:indeterminate="false"
+    <Button
+        android:id="@+id/editPic"
+        android:layout_width="117dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/pic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toBottomOf="@+id/editMap"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/amount"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/total"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:text="@string/total"-->
+    <!--        android:textAppearance="@android:style/TextAppearance.Material.Medium"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.56"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.902" />-->
 
-    <TextView
-        android:id="@+id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/total"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/totalSoFar"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:text="@string/totalSoFar"-->
+    <!--        android:textAppearance="@android:style/TextAppearance.Material.Medium"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.846"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.902" />-->
 
-    <TextView
-        android:id="@+id/totalSoFar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/totalSoFar"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/drAmount"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:text="@string/numberOfDr"-->
+    <!--        android:textAppearance="@android:style/TextAppearance.Material.Medium"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.024"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.544" />-->
 
-    <EditText
-        android:id="@+id/paymentAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:autofillHints="Please Enter an Amount"
-        android:ems="10"
-        android:hint="@string/enter_amount"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
+    <!--    <EditText-->
+    <!--        android:id="@+id/drAmount"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:autofillHints="Please Enter an Dr Amount"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="@string/enter_amount"-->
+    <!--        android:inputType="number"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.913"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.544" />-->
+
+    <!--    <NumberPicker-->
+    <!--        android:id="@+id/drAmountPicker"-->
+    <!--        android:layout_width="40dp"-->
+    <!--        android:layout_height="136dp"-->
+    <!--        android:layout_alignEnd="@+id/providerSubtitle"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.938"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.566" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

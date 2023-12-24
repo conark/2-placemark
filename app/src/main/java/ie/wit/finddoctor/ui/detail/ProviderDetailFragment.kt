@@ -59,8 +59,8 @@ class ProviderDetailFragment : Fragment() {
     }
 
     private fun render() {
-        fragBinding.editMessage.setText("A Message")
-        fragBinding.editUpvotes.setText("0")
+        fragBinding.editProviderDrName.setText("Dr Name")
+        fragBinding.editProviderAddress.setText("address")
         fragBinding.providervm = detailViewModel
         Timber.i("Retrofit fragBinding.providervm == $fragBinding.providervm")
     }

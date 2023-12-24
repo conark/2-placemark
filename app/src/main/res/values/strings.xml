@@ -8,13 +8,15 @@
     <string name="dentist">Dentist</string>
     <string name="hint_providerName">Name of Medical Provider</string>
     <string name="hint_providerDrName">Name of Doctor</string>
-    <string name="amount">Amount</string>
+    <string name="hint_providerAddress">Address</string>
+    <string name="hint_providerCity">City</string>
+    <string name="numberOfDr">Number Of Doctor</string>
     <string name="total">Total so Far</string>
     <string name="totalSoFar">$ %1$d</string>
     <string name="reportTitle">Providers Report</string>
     <string name="defaultAmount">00</string>
     <string name="defaultMethod">N/A</string>
-    <string name="enter_amount">Enter Amount</string>
+    <string name="enter_amount">Enter Dr Amount</string>
     <string name="action_provider">Create Provider</string>
     <string name="action_report">Providers List</string>
 
@@ -27,17 +29,20 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="action_about">About Us</string>
-    <string name="aboutus_title">Homer for President !!</string>
+    <string name="aboutus_title">Find Doctor </string>
     <string name="aboutus_message">Welcome!\n\n Find your doctor now! \n\nGet treatment!!</string>
 
     <string name="providersNotFound">No Providers Yet…\nGo Make a Provider!</string>
     <string name="providerError">Error : Couldn\'t Make a provider…</string>
     <string name="providerDetails">Provider Details</string>
 
-    <string name="amt">Amount :</string>
-    <string name="provider">Provider Type :</string>
-    <string name="message">Message :</string>
-    <string name="upvotes">UpVotes :</string>
+    <string name="providerName">Provider :</string>
+    <string name="providerType">Provider Type :</string>
+    <string name="dr">Dr :</string>
+    <string name="providerAddress">Address :</string>
+    <string name="providerCity">City :</string>
+    <string name="map">Map</string>
+    <string name="pic">Picture</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
 
