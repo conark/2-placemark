@@ -47,7 +47,7 @@ class ProviderDetailFragment : Fragment() {
 //        }
         fragBinding.deleteProviderButton.setOnClickListener {
             try {
-                reportViewModel.delete(loggedInViewModel.liveFirebaseUser.value?.email!!,
+                reportViewModel.delete(loggedInViewModel.liveFirebaseUser.value?.uid!!,
                     detailViewModel.observableProvider.value?.uid!!)
                 Timber.i("プロバイダの削除")
                 findNavController().navigateUp()
