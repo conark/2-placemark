@@ -14,10 +14,10 @@ class ProviderDetailViewModel : ViewModel() {
         get() = provider
         set(value) {provider.value = value.value}
 
-    fun getProvider(userid:String, id: String) {
+    fun getProvider(userid:String, providerid: String) {
         try {
             //ProviderManager.findById(email, id, provider)
-            FirebaseDBManager.findById(userid, id, provider)
+            FirebaseDBManager.findById(userid, providerid, provider)
             Timber.i("Detail getProvider() Success : ${
                 provider.value.toString()}")
         }
@@ -26,14 +26,25 @@ class ProviderDetailViewModel : ViewModel() {
         }
     }
 
-    fun updateProvider(userid:String, id: String,provider: ProviderModel) {
+    fun updateProvider(userid:String, providerid: String,provider: ProviderModel) {
         try {
             //ProviderManager.update(email, id, provider)
-            FirebaseDBManager.update(userid, id, provider)
+            FirebaseDBManager.update(userid, providerid, provider)
             Timber.i("Detail update() Success : $provider")
         }
         catch (e: Exception) {
             Timber.i("Detail update() Error : $e.message")
+        }
+    }
+
+    fun delete(userid: String, providerid: String) {
+        try {
+            //ProviderManager.delete(userid,id)
+            FirebaseDBManager.delete(userid,providerid)
+            Timber.i("Detail Delete Success : $provider")
+        }
+        catch (e: java.lang.Exception) {
+            Timber.i("Detail Delete Error : $e.message")
         }
     }
 }

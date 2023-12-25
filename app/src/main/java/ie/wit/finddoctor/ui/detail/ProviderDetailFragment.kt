@@ -49,6 +49,7 @@ class ProviderDetailFragment : Fragment() {
             try {
                 reportViewModel.delete(loggedInViewModel.liveFirebaseUser.value?.email!!,
                     detailViewModel.observableProvider.value?.uid!!)
+                Timber.i("プロバイダの削除")
                 findNavController().navigateUp()
             } catch (e: Exception) {
                 Timber.e("プロバイダの削除中にエラーが発生しました: ${e.message}")

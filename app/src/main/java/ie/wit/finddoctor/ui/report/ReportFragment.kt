@@ -106,6 +106,28 @@ class ReportFragment : Fragment(), ProviderClickListener {
                     if (isChecked) reportViewModel.loadAll()
                     else reportViewModel.load()
                 }
+
+                val searchItem = menu.findItem(R.id.item_search)
+                val searchView = searchItem.actionView as SearchView
+
+                searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        if (!query.isNullOrEmpty()) {
+                            reportViewModel.searchProvidersByKeyword(query)
+                        }
+                        return true
+                    }
+
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        if (!newText.isNullOrEmpty()) {
+                            reportViewModel.searchProvidersByKeyword(newText)
+                        } else {
+                            reportViewModel.searchProvidersByKeyword("")
+                        }
+                        return true
+                    }
+                })
+
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -167,30 +189,7 @@ class ReportFragment : Fragment(), ProviderClickListener {
         _fragBinding = null
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu, ): Boolean {
-//        menuInflater.inflate(R.menu.menu_provider, menu)
-//        val searchItem = menu.findItem(R.id.item_search)
-//        val searchView = searchItem.actionView as SearchView
-//
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                if (!query.isNullOrEmpty()) {
-//                    reportViewModel.searchProvidersByKeyword(query)
-//                }
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                if (!newText.isNullOrEmpty()) {
-//                    reportViewModel.searchProvidersByKeyword(newText)
-//                } else {
-//                    reportViewModel.searchProvidersByKeyword("")
-//                }
-//                return true
-//            }
-//        })
-//        return true
-//    }
+
 //override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 //    inflater.inflate(R.menu.menu_provider, menu)
 //    val searchItem = menu.findItem(R.id.item_search)
@@ -214,27 +213,4 @@ class ReportFragment : Fragment(), ProviderClickListener {
 //        }
 //    })
 //}
-override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-    inflater.inflate(R.menu.menu_provider, menu)
-    val searchItem = menu.findItem(R.id.item_search)
-    val searchView = searchItem.actionView as SearchView
-
-    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-        override fun onQueryTextSubmit(query: String?): Boolean {
-            if (!query.isNullOrEmpty()) {
-                reportViewModel.searchProvidersByKeyword(query)
-            }
-            return true
-        }
-
-        override fun onQueryTextChange(newText: String?): Boolean {
-            if (!newText.isNullOrEmpty()) {
-                reportViewModel.searchProvidersByKeyword(newText)
-            } else {
-                reportViewModel.searchProvidersByKeyword("")
-            }
-            return true
-        }
-    })
-}
 }

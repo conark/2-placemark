@@ -36,7 +36,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ui.home.Home">
+        <activity android:name=".ui.home.Home"
+            android:configChanges="uiMode">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
