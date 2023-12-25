@@ -8,8 +8,16 @@
         android:title="@string/action_provider"
         app:showAsAction="never" />
     <item
+        android:id="@+id/item_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always|collapseActionView"
+        />
+    <item
         android:id="@+id/toggleProviders"
         android:title=""
         app:actionLayout="@layout/togglebutton_layout"
         app:showAsAction="always" />
+
 </menu>

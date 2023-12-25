@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
@@ -19,6 +20,7 @@
             android:id="@+id/aboutFragment"
             android:icon="@drawable/ic_menu_aboutus"
             android:title="@string/action_about" />
+
     </group>
     <item android:title="@string/group_communicate">
         <menu>
@@ -41,5 +43,18 @@
                 android:title="@string/sign_out" />
         </menu>
     </item>
+    <item android:title="Preference">
+        <menu>
+        <item
+            android:id="@+id/toggleNightMode"
+            android:title="Night Mode"
+            app:actionLayout="@layout/togglebutton_layout"
+            app:showAsAction="always" />
+        </menu>
+    </item>
+
+
 </menu>
+
+
 

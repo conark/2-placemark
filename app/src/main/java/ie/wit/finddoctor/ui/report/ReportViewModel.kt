@@ -55,5 +55,16 @@ class ReportViewModel : ViewModel() {
             Timber.i("Report Delete Error : $e.message")
         }
     }
+
+    fun searchProvidersByKeyword(keyword: String) {
+        try {
+            FirebaseDBManager.searchByKeyword(keyword, providersList)
+            Timber.i("Search Success : ${providersList.value.toString()}")
+        } catch (e: Exception) {
+            Timber.i("Search Error : $e.message")
+        }
+    }
+
+
 }
 

@@ -3,6 +3,7 @@ package ie.wit.finddoctor.ui.report
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -165,4 +166,75 @@ class ReportFragment : Fragment(), ProviderClickListener {
         super.onDestroyView()
         _fragBinding = null
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu, ): Boolean {
+//        menuInflater.inflate(R.menu.menu_provider, menu)
+//        val searchItem = menu.findItem(R.id.item_search)
+//        val searchView = searchItem.actionView as SearchView
+//
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                if (!query.isNullOrEmpty()) {
+//                    reportViewModel.searchProvidersByKeyword(query)
+//                }
+//                return true
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                if (!newText.isNullOrEmpty()) {
+//                    reportViewModel.searchProvidersByKeyword(newText)
+//                } else {
+//                    reportViewModel.searchProvidersByKeyword("")
+//                }
+//                return true
+//            }
+//        })
+//        return true
+//    }
+//override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//    inflater.inflate(R.menu.menu_provider, menu)
+//    val searchItem = menu.findItem(R.id.item_search)
+//    val searchView = searchItem.actionView as SearchView
+//
+//    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//        override fun onQueryTextSubmit(query: String?): Boolean {
+//            if (!query.isNullOrEmpty()) {
+//                reportViewModel.searchProvidersByKeyword(query)
+//            }
+//            return true
+//        }
+//
+//        override fun onQueryTextChange(newText: String?): Boolean {
+//            if (!newText.isNullOrEmpty()) {
+//                reportViewModel.searchProvidersByKeyword(newText)
+//            } else {
+//                reportViewModel.searchProvidersByKeyword("")
+//            }
+//            return true
+//        }
+//    })
+//}
+override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    inflater.inflate(R.menu.menu_provider, menu)
+    val searchItem = menu.findItem(R.id.item_search)
+    val searchView = searchItem.actionView as SearchView
+
+    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(query: String?): Boolean {
+            if (!query.isNullOrEmpty()) {
+                reportViewModel.searchProvidersByKeyword(query)
+            }
+            return true
+        }
+
+        override fun onQueryTextChange(newText: String?): Boolean {
+            if (!newText.isNullOrEmpty()) {
+                reportViewModel.searchProvidersByKeyword(newText)
+            } else {
+                reportViewModel.searchProvidersByKeyword("")
+            }
+            return true
+        }
+    })
+}
 }

@@ -1,16 +1,21 @@
 package ie.wit.finddoctor.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
@@ -20,6 +25,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseUser
 import ie.wit.finddoctor.R
 import ie.wit.finddoctor.databinding.HomeBinding
@@ -64,6 +70,24 @@ class Home : AppCompatActivity() {
         navView.setupWithNavController(navController)
         initNavHeader()
 
+
+        val menu = navView.menu
+        val item = menu.findItem(R.id.toggleNightMode) as MenuItem
+        item.setActionView(R.layout.togglebutton_layout)
+        val toggleNightMode: SwitchCompat = item.actionView!!.findViewById(R.id.toggleButton)
+        toggleNightMode.isChecked = false
+
+        toggleNightMode.setOnCheckedChangeListener { _, isChecked ->
+            if (!isChecked)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            else
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        }
+
+
+
+
         if(checkLocationPermissions(this)) {
             mapsViewModel.updateCurrentLocation()
         }
@@ -77,6 +101,8 @@ class Home : AppCompatActivity() {
 //            }
 //        }
     }
+
+
 
     public override fun onStart() {
         super.onStart()
@@ -122,7 +148,7 @@ class Home : AppCompatActivity() {
                     Timber.i("DX Loading Existing Default imageUri")
                     FirebaseImageManager.updateDefaultImage(
                         currentUser.uid,
-                        R.drawable.ic_launcher_homer,
+                        R.drawable.ic_hospital,
                         navHeaderBinding.navHeaderImage
                     )
                 }
@@ -152,6 +178,45 @@ class Home : AppCompatActivity() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
     }
+
+
+
+
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        menuInflater.inflate(R.menu.menu_provider, menu)
+//        return true
+//    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.toggleNightMode -> {
+                if (item.isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    item.isChecked = false
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    item.isChecked = true
+                }
+                recreate()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        menuInflater.inflate(R.menu.menu_provider, menu)
+//
+//        val item = menu.findItem(R.id.toggleNightMode)
+//        val switch = item.actionView?.findViewById<SwitchCompat>(R.id.toggleButton)
+//
+//        switch?.isChecked = when (AppCompatDelegate.getDefaultNightMode()) {
+//            AppCompatDelegate.MODE_NIGHT_YES -> true
+//            else -> false
+//        }
+//
+//        return true
+//    }
 
     private fun registerImagePickerCallback() {
         intentLauncher =

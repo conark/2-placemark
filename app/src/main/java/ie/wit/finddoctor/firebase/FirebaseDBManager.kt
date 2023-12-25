@@ -126,4 +126,29 @@ object FirebaseDBManager : ProviderStore {
                 }
             })
     }
+
+    fun searchByKeyword(keyword: String, providersList: MutableLiveData<List<ProviderModel>>) {
+        val query = database.child("providers")
+            .orderByChild("providerName")
+            .startAt(keyword)
+            .endAt(keyword + "\uf8ff") // \uf8ff Unicode's last word
+
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                Timber.i("Firebase Provider error: ${error.message}")
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val localList = ArrayList<ProviderModel>()
+                snapshot.children.forEach {
+                    val provider = it.getValue(ProviderModel::class.java)
+                    if (provider != null && provider.providerName.contains(keyword, ignoreCase = true)) {
+                        localList.add(provider)
+                    }
+                }
+
+                providersList.value = localList
+            }
+        })
+    }
 }
