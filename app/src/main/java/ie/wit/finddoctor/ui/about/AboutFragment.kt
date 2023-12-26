@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ie.wit.finddoctor.R
+import ie.wit.finddoctor.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
 
@@ -27,4 +28,10 @@ class AboutFragment : Fragment() {
         })
         return root
     }
+
+
+
+
+
+
 }

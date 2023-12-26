@@ -84,4 +84,5 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-appcheck-debug")
     implementation ("androidx.fragment:fragment-ktx:1.3.6")
+
 }

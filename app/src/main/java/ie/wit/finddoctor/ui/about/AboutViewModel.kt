@@ -3,6 +3,8 @@ package ie.wit.finddoctor.ui.about
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.FirebaseUser
+import ie.wit.finddoctor.firebase.FirebaseDBManager
 
 class AboutViewModel : ViewModel() {
 
@@ -10,4 +12,5 @@ class AboutViewModel : ViewModel() {
         value = "This is slideshow Fragment"
     }
     val text: LiveData<String> = _text
+
 }

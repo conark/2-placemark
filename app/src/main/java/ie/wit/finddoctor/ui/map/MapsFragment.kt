@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -76,7 +77,13 @@ class MapsFragment : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
-
+//    override fun onMapReady(googleMap: GoogleMap) {
+//        googleMap.setOnMapClickListener { latLng ->
+//            // 地図上でクリックされた場所の緯度経度を取得
+//            MapsViewModel.setLocation(latLng)
+//            // 画面を閉じるか、他の処理を行う（例: 確定ボタンの表示など）
+//        }
+//    }
     private fun render(providersList: ArrayList<ProviderModel>) {
         var markerColour: Float
         if (providersList.isNotEmpty()) {
@@ -89,7 +96,7 @@ class MapsFragment : Fragment() {
 
                 mapsViewModel.map.addMarker(
                     MarkerOptions().position(LatLng(it.latitude, it.longitude))
-                        .title("${it.providertype} ${it.drAmount}")
+                        .title("${it.providertype} ${it.providerName}")
                         .snippet(it.providerDrName)
                         .icon(BitmapDescriptorFactory.defaultMarker(markerColour ))
                 )

@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +27,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.google.errorprone.annotations.Modifier
 import com.google.firebase.auth.FirebaseUser
 import ie.wit.finddoctor.R
 import ie.wit.finddoctor.databinding.HomeBinding
@@ -40,13 +42,13 @@ import timber.log.Timber
 class Home : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var homeBinding : HomeBinding
-    private lateinit var navHeaderBinding : NavHeaderBinding
+    private lateinit var homeBinding: HomeBinding
+    private lateinit var navHeaderBinding: NavHeaderBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var loggedInViewModel : LoggedInViewModel
-    private lateinit var headerView : View
-    private lateinit var intentLauncher : ActivityResultLauncher<Intent>
-    private val mapsViewModel : MapsViewModel by viewModels()
+    private lateinit var loggedInViewModel: LoggedInViewModel
+    private lateinit var headerView: View
+    private lateinit var intentLauncher: ActivityResultLauncher<Intent>
+    private val mapsViewModel: MapsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +64,11 @@ class Home : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
-        appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.providerFragment, R.id.reportFragment,R.id.mapsFragment, R.id.aboutFragment), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.providerFragment, R.id.reportFragment, R.id.mapsFragment, R.id.aboutFragment
+            ), drawerLayout
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val navView = homeBinding.navView
@@ -88,9 +93,13 @@ class Home : AppCompatActivity() {
 
 
 
-        if(checkLocationPermissions(this)) {
+        if (checkLocationPermissions(this)) {
             mapsViewModel.updateCurrentLocation()
         }
+
+
+
+
 //        navController.addOnDestinationChangedListener { _, destination, arguments ->
 //            when(destination.id) {
 //                R.id.reportFragment -> {

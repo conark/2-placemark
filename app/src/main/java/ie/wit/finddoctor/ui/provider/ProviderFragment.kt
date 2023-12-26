@@ -2,7 +2,10 @@ package ie.wit.finddoctor.ui.provider
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -10,14 +13,20 @@ import androidx.lifecycle.Lifecycle
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import ie.wit.finddoctor.R
 import ie.wit.finddoctor.databinding.FragmentProviderBinding
+import ie.wit.finddoctor.firebase.FirebaseImageManager
 import ie.wit.finddoctor.models.ProviderModel
 import ie.wit.finddoctor.ui.auth.LoggedInViewModel
 import ie.wit.finddoctor.ui.map.MapsViewModel
 import ie.wit.finddoctor.ui.report.ReportViewModel
+import ie.wit.finddoctor.utils.readImageUri
+import timber.log.Timber
 
 
 class ProviderFragment : Fragment() {
@@ -35,8 +44,11 @@ class ProviderFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+
+
         _fragBinding = FragmentProviderBinding.inflate(inflater, container, false)
         val root = fragBinding.root
 	 setupMenu()
@@ -44,6 +56,9 @@ class ProviderFragment : Fragment() {
         providerViewModel.observableStatus.observe(viewLifecycleOwner, Observer {
                 status -> status?.let { render(status) }
         })
+
+
+
 
 //        fragBinding.progressBar.max = 10000
 //        fragBinding.drAmountPicker.minValue = 1
@@ -58,6 +73,8 @@ class ProviderFragment : Fragment() {
         return root;
     }
 
+
+
     private fun render(status: Boolean) {
         when (status) {
             true -> {
@@ -69,6 +86,8 @@ class ProviderFragment : Fragment() {
             false -> Toast.makeText(context,getString(R.string.providerError),Toast.LENGTH_LONG).show()
         }
     }
+
+
 
     private fun setButtonListener(layout: FragmentProviderBinding) {
         layout.providerButton.setOnClickListener {
@@ -134,5 +153,12 @@ private fun setupMenu() {
 //        total = reportViewModel.observableProvidersList.value!!.sumOf { it.amount }
 //        fragBinding.progressBar.progress = total
 //        fragBinding.totalSoFar.text = String.format(getString(R.string.totalSoFar),total)
+//    }
+
+//    private fun navigateToMapEditFragment() {
+//        // Implement the logic to navigate to MapEditFragment
+//        // Example using Safe Args:
+//        val action: NavDirections = ProviderFragmentDirections.actionProviderFragmentToMapEditFragment()
+//        findNavController().navigate(action)
 //    }
 }
